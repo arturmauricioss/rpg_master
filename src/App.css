@@ -2,4 +2,112 @@
   background: #1e1e1e;
   min-height: 100vh;
   color: white;
+  padding: 1rem;
+  font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+button {
+  margin: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #666;
+  border-radius: 6px;
+  background: #2d2d2d;
+  color: #fff;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4d4d4d;
+}
+
+input {
+  margin: 0.25rem;
+  padding: 0.4rem;
+  border: 1px solid #555;
+  border-radius: 5px;
+  background: #101010;
+  color: #eee;
+}
+
+.box {
+  margin: 1rem 0;
+  border: 1px solid #444;
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: #161616;
+}
+
+.grid-3, .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
+
+label input,
+label select {
+  margin-top: 0.25rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin: 0.5rem 0;
+}
+
+li.inactive {
+  opacity: 0.6;
+  border: 2px solid #ff5050;
+}
+
+li.active-character {
+  border: 2px solid #66ff66;
+  background: #1d421d;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+ table td {
+  border: 1px solid #444;
+  padding: 0.35rem;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background: #1b1b1b;
+}
+
+.status {
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: #333;
+  border-radius: 6px;
+}
+
+.status.error {
+  background: #6f1b1b;
+}
+
+.dice-result {
+  font-size: 1.2rem;
+  font-weight: bold;
 }

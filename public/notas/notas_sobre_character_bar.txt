@@ -1,0 +1,226 @@
+--------------------------------------------------------------
+App.tsx
+--------------------------------------------------------------
+// import CharacterBar from "./CharacterBar"
+// import genesis from "./assets/portraits/genesis.png"
+
+function App() {
+
+  return (
+    <div>
+      
+    </div>
+
+    // <div>
+
+    //   <CharacterBar
+    //     name="Excalibur"
+    //     level={35}
+    //     hp={85}
+    //     maxHp={102}
+    //     mp={40}
+    //     maxMp={100}
+    //     portrait={genesis}
+    //   />
+
+    // </div>
+
+  )
+}
+
+export default App
+
+--------------------------------------------------------------
+App.css
+--------------------------------------------------------------
+
+.app {
+  background: #1e1e1e;
+  min-height: 100vh;
+  color: white;
+}
+--------------------------------------------------------------
+CharacterBar.tsx
+--------------------------------------------------------------
+
+
+import "./CharacterBar.css"
+
+type Props = {
+  name: string
+  level: number
+  hp: number
+  maxHp: number
+  mp: number
+  maxMp: number
+  portrait: string
+}
+
+export default function CharacterBar({
+  name,
+  level,
+  hp,
+  maxHp,
+  mp,
+  maxMp,
+  portrait
+}: Props) {
+
+  const hpPercent = (hp / maxHp) * 100
+  const mpPercent = (mp / maxMp) * 100
+
+  return (
+
+    <div className="characterBar">
+
+      <div className="portraitWrapper">
+        <img src={portrait} className="portrait"/>
+      </div>
+
+      <div className="bars">
+
+        <div className="topInfo">
+          <span className="level">Lv {level}</span>
+          <span className="name">{name}</span>
+        </div>
+
+        <div className="hpBar">
+          <div
+            className="hpFill"
+            style={{ width: hpPercent + "%" }}
+          />
+        </div>
+
+        <div className="mpBar">
+          <div
+            className="mpFill"
+            style={{ width: mpPercent + "%" }}
+          />
+        </div>
+
+      </div>
+
+    </div>
+
+  )
+}
+
+--------------------------------------------------------------
+CharacterBar.css
+--------------------------------------------------------------
+.characterBar {
+  display: flex;
+  align-items: center;
+  width: 260px;
+  font-family: Arial;
+  position: relative;
+  background: #eee;
+  border-radius: 8px;
+  margin: 0px;
+}
+
+.portraitWrapper {
+  width: 50%;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.bars {
+  flex: 1;
+  margin-left: -90px; 
+  padding-left: 65px;
+}
+
+.topInfo {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.level {
+  font-size: 12px;
+  font-weight: bold;
+  color: #463c08;
+}
+
+.name {
+  font-size: 12px;
+  color: #463c08;
+}
+
+/* HP */
+
+.hpBar {
+  width: 95%;
+  height: 10px;
+  background: #220000;
+  border: 1px solid black;
+  margin-bottom: 1px;
+  position: relative;
+  overflow: hidden;
+
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+}
+
+.hpFill {
+  height: 100%;
+  background: linear-gradient(to right, #ff3b3b, #b40000);
+
+  clip-path: polygon(
+    10px 0,
+    100% 0,
+    calc(100% - 10px) 100%,
+    0 100%
+  );
+}
+.hpFill::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    rgba(255,255,255,0.25),
+    transparent
+  );
+}
+
+/* MP */
+
+.mpBar {
+  width: 81%;
+  height: 8px;
+  background: #001533;
+  border: 1px solid black;
+  overflow: hidden;
+
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    calc(100% - 8px) 100%,
+    0 100%
+  );
+}
+
+.mpFill {
+  height: 100%;
+  background: linear-gradient(to right, #3aa0ff, #004ecb);
+
+  clip-path: polygon(
+    8px 0,
+    100% 0,
+    calc(100% - 8px) 100%,
+    0 100%
+  );
+}
+

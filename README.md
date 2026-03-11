@@ -71,3 +71,35 @@ export default defineConfig([
   },
 ])
 ```
+
+## RPG Tabletop específico
+
+Scripts adicionados:
+
+- `npm run dev` - frontend Vite
+- `npm run server` - backend Node/Express + SQLite em modo dev (nodemon)
+- `npm run server:start` - backend Node/Express sem reinício automática
+
+Rode:
+
+1. `cd server && npm install`
+2. `npm run server` (no terminal 1)
+3. `npm install` (na raiz, se ainda não tiver instalado)
+4. `npm run dev` (no terminal 2)
+
+API endpoints expostos:
+
+- `GET /api/campaigns`
+- `POST /api/campaigns`
+- `GET /api/campaigns/:campaignId/sessions`
+- `POST /api/campaigns/:campaignId/sessions`
+- `GET /api/characters?campaignId=&sessionId=`
+- `POST /api/characters`
+- `PUT /api/characters/:id`
+- `PATCH /api/characters/:id/active`
+- `DELETE /api/characters/:id`
+- `GET /api/monsters`
+
+> O SQLite local é armazenado em `server/rpg_master.db` e foi projetado para uso local do mestre.
+>
+> O frontend gera atributos no estilo D&D 3.5 (4d6 descartando o menor) e já aplica HP/MP iniciais baseados na classe selecionada.
